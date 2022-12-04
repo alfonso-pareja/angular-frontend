@@ -1,0 +1,23 @@
+
+<div class="wrapper">
+    <div class="row">
+        <div class="col-8">
+            <label for="inputSearch" class="label">Ingresa una banda.</label>
+            <input 
+                id="inputSearch"
+                type="text" nbInput 
+                [(ngModel)]="formSearch"
+                fullWidth placeholder="Ej. Radiohead">
+        </div>
+        <div class="col-4">
+            <button 
+                id="btnSearch"
+                [class.spinner]="loading" [disabled]="loading || !formSearch"
+                (click)="searchTrack()" nbButton status="primary">
+                <nb-icon class="action-icon" icon="search-outline"></nb-icon>
+                <span>Buscar</span>
+            </button>
+        </div>
+
+    </div>
+</div>

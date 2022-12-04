@@ -1,0 +1,34 @@
+
+
+
+
+
+div[class^=col-4] {
+  position: relative;
+  padding: 0.5rem;
+  box-sizing: border-box;
+}
+
+#btnSearch {
+  position: absolute;
+  width: 95%;
+  bottom: 0
+}
+
+
+.wrapper{
+  margin-top: 5px;
+}
+
+// .inline-form-card nb-card-body {
+//     padding-bottom: 0;
+// }
+
+// .form-inline {
+//   display: flex !important;
+// }
+
+// .form-inline > * {
+//   margin: 0 1.5rem 1.5rem 0;
+// }
+

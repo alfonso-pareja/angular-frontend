@@ -1,0 +1,66 @@
+
+
+<div class="wrapper">
+    <div class="header p-10" *ngIf="bandName">
+        <div>
+            <h4>Busqueda por: {{bandName}}</h4>
+            <label class="label" *ngIf="dataSource.length">Resultados: {{dataSource.length}}</label>
+        </div>
+    </div>
+
+    <div class="row">
+        <ng-container *ngIf="!dataSource || dataSource && !dataSource.length">
+            <div class="col-12 center-items">
+                <label class="label">Realiza una busqueda para encontrar resultados!</label>
+            </div>
+        </ng-container>
+
+        <ng-container>
+            <div class="col-4" *ngFor="let item of dataSource">
+                <nb-card>
+                    <nb-card-body>
+    
+                        <div class="row">
+                            <div class="col-12 item-labels-align">
+                                <label class="label">Nombre Banda:</label>
+                                <p>{{bandName}}</p>
+                            </div>
+                            <div class="col-12 item-labels-align">
+                                <label class="label">Nombre Album:</label>
+                                <p>{{item.nombre_album}}</p>
+                            </div>
+                            <div class="col-12 item-labels-align">
+                                <label class="label">Tema:</label>
+                                <p>{{item.nombre_tema}}</p>
+                            </div>
+                            <div class="col-12 item-labels-align">
+                                <label class="label">Lanzamiento:</label>
+                                <p>{{item.fecha_lanzamiento}}</p>
+                            </div>
+                            <div class="col-12 item-labels-align">
+                                <label class="label">Precio:</label>
+                                <p>{{item.precio && item.precio.valor || 0}} {{item.precio.moneda}}</p>
+                            </div>
+                            <div class="col-12 item-labels-align">
+                                <label class="label">Preview:</label>
+                                <audio-player [music]="item.preview_url"></audio-player>
+                            </div>
+                            <br>
+                            <div class="col-12 center-items mt-10">
+                                <button
+                                    (click)="addToFavorites(item)"
+                                     *ngIf="!item.isFavorite" size="tiny" nbButton status="primary">
+                                    <nb-icon class="action" icon="star-outline"></nb-icon>
+                                    Añadir a favoritos
+                                </button>
+                                <label class="label" *ngIf="item.isFavorite">Añadido a favoritos</label>
+                            </div>
+                        </div>
+                
+                    </nb-card-body>
+                </nb-card>
+            </div>
+        </ng-container>
+    </div>
+
+</div>

@@ -1,0 +1,28 @@
+.wrapper {
+    margin-top: 40px;
+}
+
+.item-labels-align {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+
+    p{
+        font-size: var(--text-label-font-size);;
+    }
+}
+
+.center-items {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.mt-10{
+    margin-top: 10px;
+}
+
+.p-10{
+    padding: 10px;
+}

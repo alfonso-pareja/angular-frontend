@@ -1,0 +1,8 @@
+<!-- <p>audio-player works!</p> -->
+
+<nb-actions size="small" (click)="play(music)" *ngIf="!isPlaying">
+    <nb-action icon="play-circle-outline"></nb-action>
+</nb-actions>
+<nb-actions size="small" (click)="pause()" *ngIf="isPlaying">
+    <nb-action icon="pause-circle-outline"></nb-action>
+</nb-actions>

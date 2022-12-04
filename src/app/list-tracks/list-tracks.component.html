@@ -1,0 +1,12 @@
+
+<nb-card>
+    <nb-card-body>
+        <app-finder (infoList)="infoList($event)" (bandName)="setBandName($event)"></app-finder>
+    </nb-card-body>
+</nb-card>
+<nb-card>
+    <nb-card-body>
+        <app-table [dataSource]="ListTracks" [bandName]="bandName"></app-table>
+    </nb-card-body>
+</nb-card>
+
