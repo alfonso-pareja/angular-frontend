@@ -29,36 +29,42 @@ export class FinderComponent implements OnInit {
     const bandName = this.formSearch;
     this.loading = true;
 
-    // Se obtiene la lista de canciones
-    const trackList = await this.service
-      .searchTrackByTerm(bandName, 25)
-      .then((response) => response);
+    try {
+      // Se obtiene la lista de canciones
+      const trackList = await this.service
+        .searchTrackByTerm(bandName, 25)
+        .then((response) => response)
+  
+      // Se obtiene la lista de Favoritos
+      const favoriteSongs = await this.service
+        .getFavorites()
+        .then((favorites) => favorites);
+      
+        if (trackList && !trackList.status ){
+          return this.util.showToast('warning', 'Busqueda', trackList.message);
+        }
+    
+        if(!trackList.data || trackList.data && trackList.data.canciones && !trackList.data.canciones.length)
+          return this.util.showToast('warning', 'Busqueda', 'No se encontraron resultados para la busqueda');
+    
+        // Se busca si en la lista de canciones existe una en favoritos
+        if(favoriteSongs && favoriteSongs.data && favoriteSongs.data.length){
+          (trackList.data.canciones).map((song: ISong) => {
+            if(favoriteSongs.data &&
+              (favoriteSongs.data).some((favorite) => favorite.cancion_id == song.cancion_id))
+                song.isFavorite = true;
+              
+          })
+        }
+    
+        this.listSongs = trackList.data.canciones;
+        this.loading   = false;
 
-    // Se obtiene la lista de Favoritos
-    const favoriteSongs = await this.service
-      .getFavorites()
-      .then((favorites) => favorites);
-
-
-    if (trackList && !trackList.status ){
-      return this.util.showToast('warning', 'Busqueda', trackList.message);
+    } catch (error) {
+      this.loading   = false
+      return this.util.showToast('danger', 'App', 'Ocurrio un problema, reintenta.');
     }
 
-    if(!trackList.data || trackList.data && trackList.data.canciones && !trackList.data.canciones.length)
-      return this.util.showToast('warning', 'Busqueda', 'No se encontraron resultados para la busqueda');
-
-    // Se busca si en la lista de canciones existe una en favoritos
-    if(favoriteSongs && favoriteSongs.data && favoriteSongs.data.length){
-      (trackList.data.canciones).map((song: ISong) => {
-        if(favoriteSongs.data &&
-          (favoriteSongs.data).some((favorite) => favorite.cancion_id == song.cancion_id))
-            song.isFavorite = true;
-          
-      })
-    }
-
-    this.listSongs = trackList.data.canciones;
-    this.loading   = false;
 
     this.infoList.emit(this.listSongs);
     this.bandName.emit(bandName);

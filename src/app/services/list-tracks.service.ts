@@ -1,9 +1,9 @@
 import { Injectable } from "@angular/core";
-import { environment } from "src/environments/environment";
 import { HttpClient } from '@angular/common/http';
 import { firstValueFrom } from "rxjs";
 import { IResponse } from "../interfaces/list-tracks.interface";
 import { IPostFavorite, IResponseFavorite } from "../interfaces/favorites.interface";
+import { environment } from "src/environments/environment";
 
 
 @Injectable()
