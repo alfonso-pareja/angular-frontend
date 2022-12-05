@@ -24,7 +24,7 @@ cd angular-frontend-yapo
 npm install
 ```
 
-**Iniciar proyecto**
+**Iniciar proyecto**\
 La aplicacion se levantara en el puerto 4200, abrir navegador e ingresar a http://localhost:4200/list
 ```
 npm start
