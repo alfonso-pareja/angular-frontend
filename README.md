@@ -1,27 +1,42 @@
-# Angular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.5.
+# Musical Bands Finder 
 
-## Development server
+Proyecto desarrollado como prueba tecnica para yapo, este cuenta con 2 partes (frontend y backend), siendo esta el entregable de frontend, construido con Angular 14.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
+### Dependencias
+Las siguientes dependencias fueron utilizadas en este proyecto
+```
+Node v14.17.6
+npm 6.14.15
+Angular CLI 14.0.0
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Levantar Proyecto
+**Clonar repositorio desde github**
+```
+git clone https://github.com/alfonso-pareja/angular-frontend-yapo.git
+cd angular-frontend-yapo
+```
 
-## Build
+**Instalar componentes**
+```
+npm install
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+**Iniciar proyecto**
+La aplicacion se levantara en el puerto 4200, abrir navegador e ingresar a http://localhost:4200/list
+```
+npm start
+```
 
-## Running unit tests
+**Proyecto iniciado**
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+![console](/images/console.png)
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+**Preview**
 
-## Further help
+![preview](/images/preview.png)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
