@@ -1,7 +1,6 @@
 
 # Musical Bands Finder 
 
-Proyecto desarrollado como prueba tecnica para yapo, el cual cuenta de 2 partes (frontend y backend), siendo esta el entregable de frontend, construido con Angular 14.
 
 
 ## Dependencias
